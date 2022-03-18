@@ -1,25 +1,33 @@
 package semana6;
 
+
 public class CafeDaManha {
 	public static void main(String[] args) throws InterruptedException {
-		Coffee cup = pourCoffee();
+		
+		long startTime = System.currentTimeMillis();
+		System.out.println(" ==========================  ");
 
-		Egg eggs = fryEggs(2);
+		Coffee.pourCoffee();
+
+		Egg.fryEggs(2);
 		System.out.println("eggs are ready");
 
-		Bacon bacon = fryBacon(3);
+		Bacon.fryBacon(3);
 		System.out.println("bacon is ready");
 
-		Toast toast = ToastBread(2);
-		ApplyButter(toast);
-		ApplyJam(toast);
+		Toast.ToastBread(2);
+		ApplyButter(new Toast());
+		ApplyJam(new Toast());
 		System.out.println("toast is ready");
 		
 		//Juice oj = new Juice();
 		Juice.pourOJ();
 		System.out.println("oj is ready");
 		System.out.println("Breakfast is ready!");
+		System.out.println("Duração =  "+ (System.currentTimeMillis() - startTime)/1000 + " segundos");
 	}
+
+	
 
 	public static void ApplyJam(Toast toast) {  
         System.out.println("Putting jam on the toast");
@@ -29,46 +37,5 @@ public class CafeDaManha {
         System.out.println("Putting butter on the toast");
 	}
 
-	private static Toast ToastBread(int slices) throws InterruptedException {
-		for (int slice = 0; slice < slices; slice++) {
-			System.out.println("Putting a slice of bread in the toaster");
-		}
-		System.out.println("Start toasting...");
-		Thread.sleep(3000);
-		System.out.println("Remove toast from toaster");
-
-		return new Toast();
-	}
-
-	private static Bacon fryBacon(int slices) throws InterruptedException
-    {
-        System.out.println("putting "+slices +" slices of bacon in the pan");
-        System.out.println("cooking first side of bacon...");
-        Thread.sleep(3000);
-        for (int slice = 0; slice < slices; slice++)
-        {
-            System.out.println("flipping a slice of bacon");
-        }
-        System.out.println("cooking the second side of bacon...");
-        Thread.sleep(3000);
-        System.out.println("Put bacon on plate");
-
-        return new Bacon();
-    }
-
-	private static Egg fryEggs(int howMany) throws InterruptedException {
-		System.out.println("Warming the egg pan...");
-		Thread.sleep(3000);
-		System.out.println("cracking "+howMany+" eggs");
-		System.out.println("cooking the eggs ...");
-		Thread.sleep(3000);
-		System.out.println("Put eggs on plate");
-
-		return new Egg();
-	}
-	private static Coffee pourCoffee() {
-		System.out.println("Pouring(fazendo) coffee");
-		return new Coffee();
-	}
 
 }
