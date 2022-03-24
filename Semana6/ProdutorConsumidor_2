@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author RinaldoDev
  */
 public class ProdutorConsumidor_2 {
-
+//As 3 variáveis fazem parte da seção crítica
   private static final BlockingQueue<Integer> FILA = 
       new LinkedBlockingDeque<>(5);
   private static volatile boolean produzindo = true;
