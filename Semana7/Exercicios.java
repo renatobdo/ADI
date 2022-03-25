@@ -183,7 +183,7 @@ State of thread2 after calling .start() method on it - RUNNABLE
 State of thread2 after calling .sleep() method on it - TIMED_WAITING
 State of thread1 while it called join() method on thread2 -WAITING
 State of thread2 when it has finished it's execution - TERMINATED
-//  
+  
 // ***********************************************************************************//
 
   
