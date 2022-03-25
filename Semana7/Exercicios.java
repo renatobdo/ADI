@@ -359,3 +359,25 @@ class BuyPen implements Runnable{
         System.out.println("Buy pen-> "+sharedResource.buyProduct("PEN"));
     }
 }
+
+// *************Resultado sem synchronized ********************************************//
+Buy book-> Processing Successful. BOOK is out for delivery to student1
+Buy book-> Processing Successful. BOOK is out for delivery to student2
+Buy pen-> Processing Successful. PEN is out for delivery to student3
+
+
+// **************Resultado com synchronized *********************************************//
+
+Buy book-> Oops Product go out of stock. Sorry student1
+Buy book-> Processing Successful. BOOK is out for delivery to student2
+Buy pen-> Processing Successful. PEN is out for delivery to student3
+
+
+
+
+
+
+
+
+
+
