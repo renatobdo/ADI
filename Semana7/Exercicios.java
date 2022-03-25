@@ -278,3 +278,82 @@ Sending	 Hi
  Bye Sent
 
  Hi Sent
+
+//************************ MAIS EXEMPLOS DE APLICAÇÃO DE SINCRONIZAÇÃO ENTRE THREADS **********************//
+
+
+// ************************** Ecommerce *******************************************//
+package Semana7;
+
+public class Ecommerce{
+    public static void main(String args[]){
+        SharedProductResource sharedResource = new SharedProductResource();
+        BuyPen buyPen = new BuyPen(sharedResource);
+        BuyBook buyBook = new BuyBook(sharedResource);
+
+        Thread student1 = new Thread(buyBook, "student1");
+        Thread student2 = new Thread(buyBook, "student2");
+        Thread student3 = new Thread(buyPen, "student3");
+        student1.start();
+        student2.start();
+        student3.start();
+    }
+}
+
+//*******************
+package Semana7;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class SharedProductResource{
+	private Map<String, Integer> products = new HashMap<String, Integer>();
+	public SharedProductResource(){
+		products.put("PEN", 10);
+		products.put("BOOK", 1);
+		products.put("CYCLE", 2);
+		products.put("CAMERA", 5);
+		products.put("COAT", 1);
+
+		
+	}
+	// ************************** Testes aqui de sincronização ********************************//
+	public  String buyProduct(String key){
+        //Esse if está na seção crítica...
+		if (products.containsKey(key)){
+			Integer quantity = products.get(key);
+			if(!quantity.equals(0)){
+				products.put(key,(quantity-1));
+				return "Processing Successful. "+key+" is out for delivery to "+Thread.currentThread().getName();
+				
+			}
+		}
+		return "Oops Product go out of stock. Sorry "+ Thread.currentThread().getName();
+	}
+        
+}
+//*******************************
+package Semana7;
+
+//classe compraDeLivros
+class BuyBook implements Runnable{
+    SharedProductResource sharedResource = null;
+    public BuyBook(SharedProductResource sharedResource){
+        this.sharedResource = sharedResource;
+    }
+    public void run(){
+        System.out.println("Buy book-> "+sharedResource.buyProduct("BOOK"));
+    }
+}
+//******************************
+package Semana7;
+//Classe compraDeCanetas
+class BuyPen implements Runnable{
+    SharedProductResource sharedResource = null;
+    public BuyPen(SharedProductResource sharedResource){
+        this.sharedResource = sharedResource;
+    }
+    public void run(){
+        System.out.println("Buy pen-> "+sharedResource.buyProduct("PEN"));
+    }
+}
