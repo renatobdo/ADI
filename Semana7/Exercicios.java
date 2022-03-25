@@ -373,9 +373,128 @@ Buy book-> Processing Successful. BOOK is out for delivery to student2
 Buy pen-> Processing Successful. PEN is out for delivery to student3
 
 
+//************* Sistema de votação *************************//
 
+class votingCounterRunnable implements Runnable{
+    private int counter = 0;
+    public int getCounter(){
+        return counter;
+    }
+    public void setCounter(int counter){
+        this.counter = counter;
+    }
+    public void run(){
+        System.out.println(Thread.currentThread().getName()+
+            " antes de incrementar o contador - "+getCounter());
+            //seção crítica
+        setCounter(getCounter()+1);
+        System.out.println(Thread.currentThread().getName()+ 
+        " Depois de incrementar o contador - "+getCounter());
+    }
+}
+//*************************
+public class ReadModifyWriteMain{
+    public static void main(String args[]){
+        votingCounterRunnable counterRunnable = new votingCounterRunnable();
+        Thread state1 = new Thread(counterRunnable, "State1");
+        Thread state2 = new Thread(counterRunnable, "State2");
+        Thread state3 = new Thread(counterRunnable, "State3");
+        Thread state4 = new Thread(counterRunnable, "State4");
+        Thread state5 = new Thread(counterRunnable, "State5");
+        state1.start();
+        state2.start();
+        state3.start();
+        state4.start();
+        state5.start();
 
+    }
+}
+//************** Saída sem synchronized **************************
+State3 antes de incrementar o contador - 0
+State5 antes de incrementar o contador - 0
+State2 antes de incrementar o contador - 0
+State1 antes de incrementar o contador - 0
+State4 antes de incrementar o contador - 0
+State1 Depois de incrementar o contador - 4
+State2 Depois de incrementar o contador - 3
+State5 Depois de incrementar o contador - 2
+State3 Depois de incrementar o contador - 1
+State4 Depois de incrementar o contador - 5
 
+//************************com synchronized *****************************
+State1 antes de incrementar o contador - 0
+State2 antes de incrementar o contador - 0
+State1 Depois de incrementar o contador - 1
+State2 Depois de incrementar o contador - 2
+State4 antes de incrementar o contador - 1
+State4 Depois de incrementar o contador - 3
+State5 antes de incrementar o contador - 2
+State3 antes de incrementar o contador - 2
+State5 Depois de incrementar o contador - 4
+State3 Depois de incrementar o contador - 5
+	
+//***********************************
+
+class MyRunnable1 implements Runnable{
+    public void run(){
+        for (int i = 0; i < 5; i++){
+            System.out.println(Thread.currentThread().getName()+ " Number "+i);
+        }
+    }
+}
+//************
+package Semana7;
+
+public class ThreadInterleavingMain{
+    public static void main(String args[]){
+        Thread thread1 = new Thread(new MyRunnable1());
+        Thread thread2 = new Thread(new MyRunnable1());
+        thread1.start();
+        thread2.start();
+    }
+}
+//*****************Saída sem sincronia ****************************
+Thread-1 Number 0
+Thread-0 Number 0
+Thread-1 Number 1
+Thread-0 Number 1
+Thread-1 Number 2
+Thread-0 Number 2
+Thread-1 Number 3
+Thread-0 Number 3
+Thread-1 Number 4
+Thread-0 Number 4
+//********************Com sincronia veja código-fonte mais abaixo MyRunnable2 e ThreadInterleavingMain2**************************
+Thread 1 Number 0
+Thread 1 Number 1
+Thread 1 Number 2
+Thread 1 Number 3
+Thread 1 Number 4
+Thread 2 Number 0
+Thread 2 Number 1
+Thread 2 Number 2
+Thread 2 Number 3
+Thread 2 Number 4
+//********Com sincronia
+class MyRunnable2 implements Runnable{
+    public void run(){
+        MyRunnable2.print();
+    }
+    public static synchronized void print(){
+        for (int i = 0; i < 5; i++){
+            System.out.println(Thread.currentThread().getName()+ " Number "+i);
+        }
+    }
+}
+//************************
+public class ThreadInterleavingMain2{
+        public static void main(String args[]){
+            Thread thread1 = new Thread(new MyRunnable(), "Thread 1");
+            Thread thread2 = new Thread(new MyRunnable(), "Thread 2");
+            thread1.start();
+            thread2.start();
+        }
+    }
 
 
 
