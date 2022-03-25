@@ -190,6 +190,8 @@ State of thread2 when it has finished it's execution - TERMINATED
 
 // ********************************************** A Java program to demonstrate working of synchronized ************************//
 //** da pra realizar sincronização no método (Object level lock), sincronização no bloco (Object level lock) e sincronização a nível de classe(Class level lock)  ****// 
+//** Nesse exemplo iremos sincronizar o bloco ******************/
+	
 import java.io.*;
 import java.util.*;
 
@@ -281,7 +283,7 @@ Sending	 Hi
 
 //************************ MAIS EXEMPLOS DE APLICAÇÃO DE SINCRONIZAÇÃO ENTRE THREADS **********************//
 
-
+//** Nesse exemplo iremos sincronizar o método ******************/
 // ************************** Ecommerce *******************************************//
 package Semana7;
 
