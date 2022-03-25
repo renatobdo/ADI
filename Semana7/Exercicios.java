@@ -189,12 +189,11 @@ State of thread2 when it has finished it's execution - TERMINATED
   
 
 // ********************************************** A Java program to demonstrate working of synchronized ************************//
-// 
+ 
 import java.io.*;
 import java.util.*;
 
-// A Class used to send a message
-class Sender
+//*********** A Class used to send a message class Sender *****************//
 {
 	public void send(String msg)
 	{
@@ -211,7 +210,7 @@ class Sender
 	}
 }
 
-// Class for send a message using Threads
+//***************** Class for send a message using Threads *********************************//
 class ThreadedSend extends Thread
 {
 	private String msg;
@@ -238,8 +237,7 @@ class ThreadedSend extends Thread
 	}
 }
 
-// Driver class
-class SyncDemo
+// ************************** Driver class class SyncDemo *********************************************//
 {
 	public static void main(String args[])
 	{
@@ -273,7 +271,7 @@ Sending     Hi
 Sending     Bye 
 
  Bye Sent
-***************************** SAÍDA SEM Sinchronized ****************************************//
+//***************************** SAÍDA SEM Sinchronized ****************************************//
 Sending	 Bye 
 Sending	 Hi 
 
