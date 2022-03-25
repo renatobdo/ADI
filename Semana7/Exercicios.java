@@ -241,6 +241,7 @@ class ThreadedSend extends Thread
 }
 
 // ************************** Driver class class SyncDemo *********************************************//
+class SyncDemo
 {
 	public static void main(String args[])
 	{
