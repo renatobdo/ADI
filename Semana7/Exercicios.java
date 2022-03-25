@@ -110,7 +110,7 @@ class thread implements Runnable {
 		}
 	}
 }
-//**************
+//**************//
 public class Test implements Runnable {
 	public static Thread thread1;
 	public static Test obj;
@@ -184,7 +184,7 @@ State of thread2 after calling .sleep() method on it - TIMED_WAITING
 State of thread1 while it called join() method on thread2 -WAITING
 State of thread2 when it has finished it's execution - TERMINATED
 //  
-// ***********************************************************************************
+// ***********************************************************************************//
 
   
 
@@ -229,7 +229,7 @@ class ThreadedSend extends Thread
 	{
 		// Only one thread can send a message
 		// at a time.
-    //************************************************ TESTE aqui removendo o sincronized e executando novamente e veja o resultado **********************
+    //************************************************ TESTE aqui removendo o sincronized e executando novamente e veja o resultado **********************//
 		synchronized(sender)
 		{
 			// synchronizing the send object
