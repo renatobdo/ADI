@@ -196,6 +196,7 @@ import java.io.*;
 import java.util.*;
 
 //*********** A Class used to send a message class Sender *****************//
+class Sender
 {
 	public void send(String msg)
 	{
