@@ -1,0 +1,8 @@
+## Comandos para o cliente e servidor linha de comando
+cd C:\Users\renat\eclipse-workspace\httpserver\target
+java -jar http.server-1.0-SNAPSHOT-jar-with-dependencies.jar 8081
+curl --request GET -v localhost:8081/something
+curl --request GET -v localhost:8081/status
+curl --request POST -v --data "50,100" localhost:8081/task
+curl --request POST -v --header "X-Test: true" --data "50,100" localhost:8081/task
+curl --request POST -v --header "X-Debug: true" --data "50,100" localhost:8081/task
