@@ -22,9 +22,11 @@ public class TesteConsumidorTopicoEstoque {
         ConnectionFactory factory = (ConnectionFactory) context.lookup("ConnectionFactory");
 
         Connection connection = factory.createConnection(); 
+      //criação da conexão
+        connection.setClientID("estoque");
         connection.start();
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-//Repare que as linhas 28 mudou o que está na linha 29 e o que está na linha 30 mudou para o que está na linha 31:
+//Repare que a linha 30 mudou para o que está na linha 31 e o que está na linha 32 mudou para o que está na linha 33:
         //Destination topico = (Destination) context.lookup("loja");
         Topic topico = (Topic) context.lookup("loja");
         //MessageConsumer consumer = session.createConsumer(topico);
