@@ -12,7 +12,7 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.naming.InitialContext;
-public class TesteProdutorTopicoEstoque3 {
+public class TesteProdutorTopicoEstoque4 {
 
     public static void main(String[] args) throws Exception {
 
