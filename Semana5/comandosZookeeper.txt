@@ -1,0 +1,40 @@
+## Comandos executados via WSL (windows sub system) ou no próprio Linux
+
+
+# Para iniciar o servidor
+./zkServer.sh start
+
+
+# Para conectar o cliente
+./zkCli.sh
+
+
+# Executando o comando help no cliente
+help
+
+# Listar os nós
+ls /
+
+# Criar um Znode
+create /parent "some parent data"
+
+ls /
+
+
+create /parent/child "some child data"
+
+ls /parent
+stat /parent
+
+get /parent/child
+
+
+# remove um nó
+rmr /parent
+
+
+#create /election ""
+ls /
+
+get /election
+
