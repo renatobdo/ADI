@@ -22,7 +22,7 @@ public class Threads_1 {
     // Runnable como lambda
     Thread t2 = new Thread(() -> System.out
         .println(Thread.currentThread().getName()));
-    // t2.start(); // N�O FA�A! VAI LAN�AR EXCE��O!
+    // t2.start(); // NAO FACA! VAI LANCAR EXCECAO!
 
     // V�rias threads
     Thread t3 = new Thread(meuRunnable);
