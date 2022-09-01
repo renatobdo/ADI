@@ -1,1 +1,41 @@
-teste
+package semana6;
+
+
+public class CafeDaManha {
+	public static void main(String[] args) throws InterruptedException {
+		
+		long startTime = System.currentTimeMillis();
+		System.out.println(" ==========================  ");
+
+		Coffee.pourCoffee();
+
+		Egg.fryEggs(2);
+		System.out.println("eggs are ready");
+
+		Bacon.fryBacon(3);
+		System.out.println("bacon is ready");
+
+		Toast.ToastBread(2);
+		ApplyButter(new Toast());
+		ApplyJam(new Toast());
+		System.out.println("toast is ready");
+		
+		//Juice oj = new Juice();
+		Juice.pourOJ();
+		System.out.println("oj is ready");
+		System.out.println("Breakfast is ready!");
+		System.out.println("Duração =  "+ (System.currentTimeMillis() - startTime)/1000 + " segundos");
+	}
+
+	
+
+	public static void ApplyJam(Toast toast) {  
+        System.out.println("Putting jam on the toast");
+	}
+	
+	private static void ApplyButter(Toast toast) { 
+        System.out.println("Putting butter on the toast");
+	}
+
+
+}
