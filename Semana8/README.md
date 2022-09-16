@@ -5,3 +5,6 @@ Esses exemplos de código foram distribuídos sob a licença MIT pelo professor 
 https://github.com/ravarmes
 
 https://github.com/ravarmes/sockets-clienteservidor-java
+
+## O código do httpclient.zip e httpserver.zip foram retirados do professor Michael Pogrebinsky
+
