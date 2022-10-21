@@ -5,10 +5,10 @@ https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows
 
 Editei o bash no wsl
 
-# Edit .bashrc
+## Edit .bashrc
 nano ~/.bashrc
 
-# Add PATH
+## Add PATH
 Add PATH="$PATH:/your/path/to/your/kafka/bin"
 No meu caso: PATH="$PATH:/mnt/c/testes/kafka_2.13-3.3.1/bin"
 
@@ -24,18 +24,24 @@ log.dirs=/mnt/c/testes/kafka_2.13-3.3.1/logs
 dataDir=/mnt/c/testes/kafka_2.13-3.3.1/data_zookeeper
 
 
-# comandos para um tópico
-lista os tópicos:
+## comandos para um tópico
+(https://www.conduktor.io/kafka/kafka-topics-cli-tutorial)
+
+## lista os tópicos:
 
 kafka-topics.sh --bootstrap-server localhost:9092 --list
 
-cria o primeiro tópico:
+## cria o primeiro tópico:
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic primeiro_topico
+
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic segundo_topico
 
-Aqui irá dar erro porque o fator de replicação é maior do que a quantidade de brokers:
+
+## Aqui irá dar erro porque o fator de replicação é maior do que a quantidade de brokers:
+
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic terceiro_topico --partitions 3 --replication-factor 2
+
 
 
 // WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could 
@@ -52,10 +58,7 @@ kafka-topics.sh --bootstrap-server localhost:9092 --list
 
 kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic primeiro_topico
 
-deletando tópicos:
+## deletando tópicos:
 
 kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic c
 
-
-
-## Introdução ao SpringBoot e criação de APIs REST
