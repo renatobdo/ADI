@@ -30,21 +30,23 @@ dataDir=/mnt/c/testes/kafka_2.13-3.3.1/data_zookeeper
 ## comandos para um tópico
 (https://www.conduktor.io/kafka/kafka-topics-cli-tutorial)
 
-### lista os tópicos:
 
-kafka-topics.sh --bootstrap-server localhost:9092 --list
 
-### cria o primeiro tópico:
+// cria o primeiro tópico:
+
+kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 1
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic primeiro_topico
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic segundo_topico
 
+// lista os tópicos:
 
-### Aqui irá dar erro porque o fator de replicação é maior do que a quantidade de brokers:
+kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+// Aqui irá dar erro porque o fator de replicação é maior do que a quantidade de brokers:
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic terceiro_topico --partitions 3 --replication-factor 2
-
 
 
 // WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could 
@@ -61,7 +63,19 @@ kafka-topics.sh --bootstrap-server localhost:9092 --list
 
 kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic primeiro_topico
 
-### deletando tópicos:
+//Descrevendo um tópico
+
+kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic first_topic
+
+//Alterar o número de partições 
+
+kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic first_topic --partitions 5
+
+// deletando tópicos (não recomendável):
 
 kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic c
+
+kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic first_topic
+
+
 
