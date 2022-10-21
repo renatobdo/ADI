@@ -10,35 +10,38 @@ nano ~/.bashrc
 
 ## Add PATH
 Add PATH="$PATH:/your/path/to/your/kafka/bin"
+
 No meu caso: PATH="$PATH:/mnt/c/testes/kafka_2.13-3.3.1/bin"
 
-# para iniciar o zookeeper:
+## para iniciar o zookeeper:
 zookeeper-server-start.sh /mnt/c/testes/kafka_2.13-3.3.1/config/zookeeper.properties
 
-# para iniciar o kafka:
+## para iniciar o kafka:
 kafka-server-start.sh /mnt/c/testes/kafka_2.13-3.3.1/config/server.properties
 
-# server.properties e zookeeper.properties
- modifiquei o server.properties e zookeeper.properties respectivamente:
+## server.properties e zookeeper.properties
+Modifiquei o server.properties e zookeeper.properties respectivamente:
+
 log.dirs=/mnt/c/testes/kafka_2.13-3.3.1/logs
+
 dataDir=/mnt/c/testes/kafka_2.13-3.3.1/data_zookeeper
 
 
 ## comandos para um tópico
 (https://www.conduktor.io/kafka/kafka-topics-cli-tutorial)
 
-## lista os tópicos:
+### lista os tópicos:
 
 kafka-topics.sh --bootstrap-server localhost:9092 --list
 
-## cria o primeiro tópico:
+### cria o primeiro tópico:
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic primeiro_topico
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic segundo_topico
 
 
-## Aqui irá dar erro porque o fator de replicação é maior do que a quantidade de brokers:
+### Aqui irá dar erro porque o fator de replicação é maior do que a quantidade de brokers:
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic terceiro_topico --partitions 3 --replication-factor 2
 
@@ -58,7 +61,7 @@ kafka-topics.sh --bootstrap-server localhost:9092 --list
 
 kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic primeiro_topico
 
-## deletando tópicos:
+### deletando tópicos:
 
 kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic c
 
