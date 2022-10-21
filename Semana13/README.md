@@ -32,7 +32,7 @@ dataDir=/mnt/c/testes/kafka_2.13-3.3.1/data_zookeeper
 
 
 
-// cria o primeiro tópico:
+**cria o primeiro tópico:**
 
 kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 1
 
@@ -40,42 +40,36 @@ kafka-topics.sh --bootstrap-server localhost:9092 --create --topic primeiro_topi
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic segundo_topico
 
-// lista os tópicos:
+**lista os tópicos:** 
 
 kafka-topics.sh --bootstrap-server localhost:9092 --list
 
-// Aqui irá dar erro porque o fator de replicação é maior do que a quantidade de brokers:
+**Aqui irá dar erro porque o fator de replicação é maior do que a quantidade de brokers:**
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic terceiro_topico --partitions 3 --replication-factor 2
 
 
-// WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could 
-
+//WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could 
 // collide. To avoid issues it is best to use either, but not both.
-
 //Error while executing topic command : Replication factor: 2 larger than available brokers: 1.
-
 //[2022-10-21 13:55:10,683] ERROR org.apache.kafka.common.errors.InvalidReplicationFactorException: 
-
-//Replication factor: 2 larger than available brokers: 1.
-
+//Replication factor: 2 larger than available brokers: 1. 
 
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic terceiro_topico --partitions 3 --replication-factor 1
-
 
 kafka-topics.sh --bootstrap-server localhost:9092 --list
 
 kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic primeiro_topico
 
-//Descrevendo um tópico
+**Descrevendo um tópico**
 
 kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic first_topic
 
-//Alterar o número de partições 
+**Alterar o número de partições**
 
 kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic first_topic --partitions 5
 
-// deletando tópicos (não recomendável):
+**Deletando tópicos (não recomendável):**
 
 kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic c
 
