@@ -50,9 +50,13 @@ kafka-topics.sh --bootstrap-server localhost:9092 --create --topic terceiro_topi
 
 
 // WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could 
+
 // collide. To avoid issues it is best to use either, but not both.
+
 //Error while executing topic command : Replication factor: 2 larger than available brokers: 1.
+
 //[2022-10-21 13:55:10,683] ERROR org.apache.kafka.common.errors.InvalidReplicationFactorException: 
+
 //Replication factor: 2 larger than available brokers: 1.
 
 
