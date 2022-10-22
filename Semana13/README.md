@@ -75,5 +75,13 @@ kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic c
 
 kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic first_topic
 
+## kafka com wsl
+
+É necessário executar essas duas linhas de comando para conseguir executar via eclipse os códigos em java e se comunicar com o kafka
+
+**sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1** 
+
+**sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1** 
+
 
 
