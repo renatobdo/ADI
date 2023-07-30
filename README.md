@@ -4,7 +4,7 @@ Este repositório contém arquivos relacionados à disciplina aplicações distr
 de sistemas do IFSP - Guarulhos
 
 ## Moodle
-Em breve
+Acesse o moodle e procure por ADID6_2023/02
 
 ## Grupo de WhatsApp
 ~~https://chat.whatsapp.com/Ds54Pbzz4N9L5qsiev2unT~~
